@@ -21,7 +21,7 @@ onMounted(() => {
 
 <template>
   <Button
-    :title="isDarkMode ? 'Light' : 'Dark'"
+    :title="isDarkMode ? $t('button.light') : $t('button.dark')"
     :icon-name="isDarkMode ? 'material-symbols:clear-day-rounded' : 'material-symbols:nightlight'"
     inverseTheme
     text-class="text-xs"

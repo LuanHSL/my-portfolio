@@ -3,7 +3,7 @@
 const props = defineProps({
   title: {
     type: String,
-    required: true
+    default: ''
   },
   inverseTheme: {
     type: Boolean,
@@ -13,10 +13,18 @@ const props = defineProps({
     type: String,
     default: ''
   },
+  containerClass: {
+    type: String,
+    default: 'rounded-3xl px-4 py-2'
+  },
   textClass: {
     type: String,
     default: ''
-  }
+  },
+  iconClass: {
+    type: String,
+    default: 'text-lg'
+  },
 })
 
 const emit = defineEmits(['click'])
@@ -28,23 +36,22 @@ const onClick = () => {
 
 <template>
   <button
-    class="flex items-center gap-2 border rounded-3xl px-4 py-2"
-    :class="{
-      'border-white text-white bg-black dark:border-black dark:text-black dark:bg-white': inverseTheme,
-      'border-black text-black bg-white dark:border-white dark:text-white dark:bg-black': !inverseTheme
-    }"
+    class="flex items-center gap-2 border"
+    :class="[
+      {
+        'border-white text-white bg-black dark:border-black dark:text-black dark:bg-white hover:scale-105': inverseTheme,
+        'border-black text-black bg-white dark:border-white dark:text-white dark:bg-black hover:scale-105': !inverseTheme
+      },
+      containerClass
+    ]"
     @click="onClick"
   >
     <Icon
       v-if="iconName"
       :name="iconName"
-      class="text-lg"
-      :class="{
-        'text-white dark:text-black': inverseTheme,
-        'text-black dark:text-white': !inverseTheme
-      }"
+      :class="iconClass"
     />
-    <span :class="textClass">
+    <span v-if="title" :class="textClass">
       {{ title }}
     </span>
   </button>
