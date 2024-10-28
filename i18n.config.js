@@ -54,7 +54,12 @@ export default defineI18nConfig(() => ({
       seo: {
         title: 'Luan Henrique - Full Stack Developer',
         description: 'Get to know the work of Luan Henrique, a fullstack developer passionate about creating innovative web solutions.'
-      }
+      },
+      languageOptions: {
+        pt: 'Portuguese',
+        en: 'English',
+      },
+      curriculum: 'Curriculum_en.pdf'
     },
     pt: {
       sectionHero: {
@@ -108,7 +113,12 @@ export default defineI18nConfig(() => ({
       seo: {
         title: 'Luan Henrique - Desenvolvedor Full Stack',
         description: 'Conheça o trabalho de Luan Henrique, um desenvolvedor Fullstack apaixonado por criar soluções web inovadoras.'
-      }
+      },
+      languageOptions: {
+        pt: 'Português',
+        en: 'Inglês',
+      },
+      curriculum: 'Curriculum_pt.pdf'
     }
   }
 }))

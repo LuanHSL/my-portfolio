@@ -32,7 +32,7 @@ const config = {
 const isOpenMenu = ref(false)
 const isMobile = ref(true)
 
-const experiences = ref([
+const experiences = computed(() => [
   {
     title: t('sectionAboutMe.experienceTwo.title'),
     period: t('sectionAboutMe.experienceTwo.period'),
@@ -112,8 +112,8 @@ const checkIsMobile = () => {
 
 const downloadCV = () => {
   const link = document.createElement('a')
-  link.href = '/Curriculum.pdf'
-  link.download = 'Curriculum.pdf'
+  link.href = `/${t('curriculum')}`
+  link.download = t('curriculum')
   link.click()
 }
 
@@ -130,7 +130,7 @@ onMounted(() => {
 
 <template>
   <div class="flex flex-col items-center bg-white dark:bg-black">
-    <section id="hero" class="flex flex-col justify-between relative max-w-screen-2xl py-3 px-6 min-h-screen md:px-14 md:py-12 md:flex-row md:items-center">
+    <section id="hero" class="flex flex-col justify-between relative w-full max-w-screen-2xl py-3 px-6 min-h-screen md:px-14 md:py-12 md:flex-row md:items-center">
       <Icon
         v-if="isMobile"
         name="material-symbols:menu-rounded"
@@ -158,7 +158,10 @@ onMounted(() => {
             @click="toggleMenu"
           />
 
-          <ButtonDarkMode />
+          <div class="flex items-center gap-4">
+            <SelectLanguage />
+            <ButtonDarkMode />
+          </div>
         </div>
 
         <ul class="flex flex-col items-center gap-10 my-20 md:flex-row md:my-0">
@@ -257,7 +260,7 @@ onMounted(() => {
       </div>
     </section>
 
-    <section id="about" class="relative max-w-screen-2xl py-3 px-6 md:py-12">
+    <section id="about" class="relative w-full max-w-screen-2xl py-3 px-6 md:py-12">
       <h2 class="text-black font-bold text-center text-2xl dark:text-white md:text-start md:text-3xl">
         {{ $t('sectionAboutMe.title') }}
       </h2>
@@ -284,7 +287,7 @@ onMounted(() => {
       </div>
     </section>
 
-    <section id="projects" class="max-w-screen-2xl py-3 px-6 md:py-12">
+    <section id="projects" class="w-full max-w-screen-2xl py-3 px-6 md:py-12">
       <h2 class="text-black font-bold text-center text-2xl mb-6 dark:text-white md:text-start md:text-3xl">{{ $t('sectionProjects.title') }}</h2>
 
       <carousel v-bind="config">
