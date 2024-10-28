@@ -50,6 +50,10 @@ export default defineI18nConfig(() => ({
         light: 'Light',
         seeDeploy: 'See Deploy',
         seeCode: 'See Code'
+      },
+      seo: {
+        title: 'Luan Henrique - Full Stack Developer',
+        description: 'Get to know the work of Luan Henrique, a fullstack developer passionate about creating innovative web solutions.'
       }
     },
     pt: {
@@ -100,6 +104,10 @@ export default defineI18nConfig(() => ({
         light: 'Claro',
         seeDeploy: 'Ver Deploy',
         seeCode: 'Ver Código'
+      },
+      seo: {
+        title: 'Luan Henrique - Desenvolvedor Full Stack',
+        description: 'Conheça o trabalho de Luan Henrique, um desenvolvedor Fullstack apaixonado por criar soluções web inovadoras.'
       }
     }
   }

@@ -4,6 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
 
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', href: '../favicon.svg' }
+      ]
+    },
+  },
+
   postcss: {
     plugins: {
       tailwindcss: {},

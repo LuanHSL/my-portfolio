@@ -7,6 +7,16 @@ import myPortfolioMobile from '~/assets/image/myPortfolioMobile.png'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
+const { t } = useI18n()
+
+useSeoMeta({
+  title: t('seo.title'),
+  ogTitle: t('seo.title'),
+  description: t('seo.description'),
+  ogDescription: t('seo.description'),
+  twitterCard: 'summary_large_image',
+})
+
 const config = {
   itemsToShow: 1.5,
   snapAlign: 'center',
@@ -20,7 +30,6 @@ const config = {
 }
 
 const isOpenMenu = ref(false)
-const { t } = useI18n()
 const isMobile = ref(true)
 
 const experiences = ref([
@@ -120,8 +129,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-white dark:bg-black">
-    <section id="hero" class="flex flex-col justify-between relative py-3 px-6 min-h-screen md:px-14 md:py-12 md:flex-row md:items-center">
+  <div class="flex flex-col items-center bg-white dark:bg-black">
+    <section id="hero" class="flex flex-col justify-between relative max-w-screen-2xl py-3 px-6 min-h-screen md:px-14 md:py-12 md:flex-row md:items-center">
       <Icon
         v-if="isMobile"
         name="material-symbols:menu-rounded"
@@ -219,7 +228,7 @@ onMounted(() => {
       </div>
 
       <img
-        class="w-1/2 max-w-[800px] self-end md:self-center"
+        class="w-1/2 max-w-[800px] self-end md:self-center md:ml-6"
         src="https://avatars.githubusercontent.com/u/61790737?v=4"
         alt=""
       >
@@ -248,7 +257,7 @@ onMounted(() => {
       </div>
     </section>
 
-    <section id="about" class="relative py-3 px-6 md:py-12">
+    <section id="about" class="relative max-w-screen-2xl py-3 px-6 md:py-12">
       <h2 class="text-black font-bold text-center text-2xl dark:text-white md:text-start md:text-3xl">
         {{ $t('sectionAboutMe.title') }}
       </h2>
@@ -275,7 +284,7 @@ onMounted(() => {
       </div>
     </section>
 
-    <section id="projects" class="py-3 px-6 md:py-12">
+    <section id="projects" class="max-w-screen-2xl py-3 px-6 md:py-12">
       <h2 class="text-black font-bold text-center text-2xl mb-6 dark:text-white md:text-start md:text-3xl">{{ $t('sectionProjects.title') }}</h2>
 
       <carousel v-bind="config">
@@ -322,7 +331,7 @@ onMounted(() => {
       </div>
     </section>
     
-    <section id="contact" class="flex flex-col justify-between py-3 px-6 min-h-screen md:py-12">
+    <section id="contact" class="flex flex-col justify-between w-full max-w-screen-2xl py-3 px-6 min-h-screen md:py-12">
       <div>
         <h2 class="text-black font-bold text-center text-2xl dark:text-white md:text-start md:text-3xl">{{ $t('sectionContact.title') }}</h2>
         <h3 class="mt-6 text-black leading-none dark:text-white md:text-center md:text-xl">{{ $t('sectionContact.subtitle') }}</h3>
